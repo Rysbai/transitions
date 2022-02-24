@@ -4,6 +4,7 @@
 [![Build Status](https://github.com/pytransitions/transitions/actions/workflows/pytest.yml/badge.svg)](https://github.com/pytransitions/transitions/actions?query=workflow%3Apytest)
 [![Coverage Status](https://coveralls.io/repos/pytransitions/transitions/badge.svg?branch=master&service=github)](https://coveralls.io/github/pytransitions/transitions?branch=master)
 [![PyPi](https://img.shields.io/pypi/v/transitions.svg)](https://pypi.org/project/transitions)
+[![Copr build status](https://copr.fedorainfracloud.org/coprs/aleneum/python3-transitions/package/python3-transitions/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/aleneum/python3-transitions/package/python3-transitions/)
 [![GitHub commits](https://img.shields.io/github/commits-since/pytransitions/transitions/0.8.11.svg)](https://github.com/pytransitions/transitions/compare/0.8.11...master)
 [![License](https://img.shields.io/github/license/pytransitions/transitions.svg)](LICENSE)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/pytransitions/transitions/master?filepath=examples%2FPlayground.ipynb)

@@ -1,0 +1,36 @@
+---
+name: RPM build in Fedora Copr
+
+# build new transitions rpms only when tagged or when working on dev-rpm
+on:
+  push:
+    branches:
+      - "dev-rpm"
+    tags:
+      - '*'
+
+jobs:
+  build:
+    name: Submit a build from Fedora container
+    container: fedora:latest
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out proper version of sources
+        uses: actions/checkout@v1
+
+      - name: Install API token for copr-cli
+        env:
+          API_TOKEN_CONTENT: ${{ secrets.COPR_API_TOKEN }}
+        run: |
+          mkdir -p "$HOME/.config"
+          echo "$API_TOKEN_CONTENT" > "$HOME/.config/copr"
+      - name: Install tooling for source RPM build
+        run: |
+          dnf -y install @development-tools @rpm-development-tools copr-cli make
+      - name: Build the source RPM
+        run: |
+          cd rpm && chmod +x ./build-helper && make srpm
+      - name: Submit the build by uploading the source RPM
+        run: |
+          copr build aleneum/python3-transitions rpm/*.src.rpm
